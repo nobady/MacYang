@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MacYang</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="cook_book">菜谱</string>
+</resources>
