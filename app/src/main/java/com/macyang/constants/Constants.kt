@@ -7,23 +7,38 @@ package com.macyang.constants
 class Constants {
 
     companion object {
-        /*新闻url*/
-        const val newsUrl = "https://way.jd.com/jisuapi/get"
+        /**
+         * 新闻url
+         * 用法参见：https://wx.jcloud.com/market/datas/31/11073
+         */
+        const val NEWS_URL = "https://way.jd.com/jisuapi/get"
 
-        /*天气url*/
-        const val weatherUrl = "https://way.jd.com/jisuapi/weather"
+        /**
+         * 天气url
+         * 用法参见：https://wx.jcloud.com/market/datas/26/11065
+         */
+        const val WEATHER_URL = "https://way.jd.com/jisuapi/weather"
 
         /*城市url*/
-        const val weatherCityUrl = "https://way.jd.com/jisuapi/weather1"
+        const val WEATHER_CITY_URL = "https://way.jd.com/jisuapi/weather1"
 
-        /*菜谱分类*/
-        const val recipeClassUrl = "https://way.jd.com/jisuapi/recipe_class"
+        /**
+         * 菜谱分类
+         * 用法参见：https://wx.jcloud.com/market/datas/18/11072
+         */
+        const val RECIPE_CLASS_URL = "https://way.jd.com/jisuapi/recipe_class"
 
         /*按照菜谱分类查找*/
-        const val searchRecipeByClass = "https://way.jd.com/jisuapi/byclass"
+        const val SEARCH_RECIPE_BY_CLASS = "https://way.jd.com/jisuapi/byclass"
 
         /*根据id找到菜谱的详情*/
-        const val recipeDetailById = "https://way.jd.com/jisuapi/detail"
+        const val RECIPE_DETAIL_BYID = "https://way.jd.com/jisuapi/detail"
+
+        /**
+         * 图灵聊天机器人
+         * 用法参见：https://wx.jcloud.com/market/datas/18/10659
+         */
+        const val CHAT_ROBOT_URL = "https://way.jd.com/turing/turing"
 
     }
 }
