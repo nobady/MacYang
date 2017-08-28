@@ -1,5 +1,7 @@
 package com.macyang.utils
 
+import com.alibaba.fastjson.JSON
+import com.android.volley.Request
 import com.ohmerhe.kolley.request.Http
 
 /**
@@ -13,8 +15,9 @@ object HttpUtils {
      * @param listener 请求结果回调
      * @param what 用于区分哪次请求
      */
-    fun getRequest(requestUrl: String, map: Map<String, String>, listener: RequestListener, what: Int) {
-        Http.get {
+    inline fun <reified T> getRequest(requestUrl: String, map: Map<String, String>, listener: RequestListener<T>,
+        what: Int): Request<ByteArray> {
+        return Http.get {
             url = requestUrl
             headers {
                 "Accept" - "application/json"
@@ -29,12 +32,21 @@ object HttpUtils {
                 }
             }
 
+            onStart {
+                listener.start()
+            }
+
             onSuccess { bytes ->
-                listener.success(what, bytes)
+                val bean = JSON.parseObject(String(bytes), T::class.java)
+                listener.success(what, bean)
             }
 
             onFail { error ->
                 listener.failed(what, error)
+            }
+
+            onFinish {
+                listener.onFinish()
             }
         }
     }
@@ -46,7 +58,8 @@ object HttpUtils {
      * @param listener 请求结果回调
      * @param what 用于区分哪次请求
      */
-    fun postRequest(requestUrl: String, map: Map<String, String>, listener: RequestListener, what: Int) {
+    inline fun <reified T> postRequest(requestUrl: String, map: Map<String, String>, listener: RequestListener<T>,
+        what: Int) {
         Http.post {
             url = requestUrl
             headers {
@@ -60,12 +73,22 @@ object HttpUtils {
                     it.key - it.value
                 }
             }
+
+            onStart {
+                listener.start()
+            }
+
             onSuccess { bytes ->
-                listener.success(what, bytes)
+                val bean = JSON.parseObject(String(bytes), T::class.java)
+                listener.success(what, bean)
             }
 
             onFail { error ->
                 listener.failed(what, error)
+            }
+
+            onFinish {
+                listener.onFinish()
             }
         }
     }
