@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
                 message.setText(R.string.title_notifications)
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.navigation_cook_book ->{
+                message.setText(R.string.cook_book)
+                return@OnNavigationItemSelectedListener true
+            }
         }
         false
     }
