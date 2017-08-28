@@ -46,4 +46,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:0.5'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
+    compile 'com.ohmerhe.kolley:kolley:0.3.0'
 }
