@@ -9,7 +9,7 @@ interface BaseView {
 
     fun hideLoadDialog()
 
-    fun showErrorDialog()
+    fun showErrorDialog(msg:String)
 
-    fun showEmptyDialog()
+    fun showEmptyDialog(msg: String)
 }

@@ -8,6 +8,11 @@ class Constants {
 
     companion object {
         /**
+         * 京东api所需的appkey
+         */
+        const val APP_KEY = "cb0dd6e182f68fc3cda15fe64f505c16"
+
+        /**
          * 新闻url
          * 用法参见：https://wx.jcloud.com/market/datas/31/11073
          */

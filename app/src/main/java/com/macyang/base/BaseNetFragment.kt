@@ -1,26 +1,29 @@
 package com.macyang.base
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import android.support.v4.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.hss01248.dialog.StyledDialog
 import com.hss01248.dialog.interfaces.MyDialogListener
 import com.macyang.utils.RequestListener
 
 /**
- * 有网络请求的activity基类
- * Created by tengfei.lv on 2017/8/28.
+ * Created by tengfei.lv on 2017/8/29.
  */
-abstract class BaseNetActivity<V:BaseView,P : BasePresenter<V>, in T> : AppCompatActivity(), RequestListener<T>, BaseView {
-    var presenter: P? = null
+ abstract class BaseNetFragment<V:BaseView,P:BasePresenter<V>,in T>:Fragment(),BaseView,RequestListener<T> {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    var presenter:P? = null
+
+    abstract fun createPresenter():P
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         presenter = createPresenter()
-        presenter?.attachView(this as V)
+        presenter?.attachView((BaseView@this) as V)
     }
-
-    abstract fun createPresenter(): P
 
     abstract fun requestData()
 
@@ -37,7 +40,7 @@ abstract class BaseNetActivity<V:BaseView,P : BasePresenter<V>, in T> : AppCompa
     }
 
     override fun hideLoadDialog() {
-        StyledDialog.dismissLoading()
+        StyledDialog.dismiss(StyledDialog.getLoadingDialog())
     }
 
     override fun showErrorDialog(msg: String) {
@@ -47,9 +50,7 @@ abstract class BaseNetActivity<V:BaseView,P : BasePresenter<V>, in T> : AppCompa
                     requestData()
                     StyledDialog.dismissLoading()
                 }
-
                 override fun onFirst() {
-                    finish()
                 }
             }).show()
     }
@@ -61,9 +62,7 @@ abstract class BaseNetActivity<V:BaseView,P : BasePresenter<V>, in T> : AppCompa
                     requestData()
                     StyledDialog.dismissLoading()
                 }
-
                 override fun onFirst() {
-                    finish()
                 }
             }).show()
     }
@@ -72,4 +71,5 @@ abstract class BaseNetActivity<V:BaseView,P : BasePresenter<V>, in T> : AppCompa
         super.onDestroy()
         presenter?.detachView()
     }
+
 }

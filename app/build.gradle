@@ -48,4 +48,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     compile 'com.ohmerhe.kolley:kolley:0.3.0'
     implementation 'com.alibaba:fastjson:1.2.37'
+    compile 'com.github.hss01248:DialogUtil:1.1.6'
 }

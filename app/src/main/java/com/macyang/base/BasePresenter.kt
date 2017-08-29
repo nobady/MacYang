@@ -6,11 +6,12 @@ import java.lang.ref.WeakReference
 /**
  * Created by tengfei.lv on 2017/8/28.
  */
-open class BasePresenter {
-    private var views: WeakReference<BaseView>? = null
-    val request: List<Request<ByteArray>> = ArrayList()
+open class BasePresenter<V:BaseView> {
 
-    fun attachView(view: BaseView) {
+    private var views: WeakReference<V>? = null
+    val requestList: ArrayList<Request<ByteArray>> = ArrayList()
+
+    fun attachView(view: V) {
         views = WeakReference(view)
     }
 
@@ -23,16 +24,12 @@ open class BasePresenter {
             views = null
         }
         /*取消网络请求操作*/
-        request.forEach {
+        requestList.forEach {
             it.cancel()
         }
     }
 
-    fun getView(): BaseView? {
+    fun getView(): V? {
         return views?.get()
-    }
-
-    fun isAttachView(): Boolean {
-        return views != null && views?.get() != null
     }
 }

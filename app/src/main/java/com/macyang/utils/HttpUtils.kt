@@ -1,7 +1,11 @@
 package com.macyang.utils
 
+import android.util.Log
 import com.alibaba.fastjson.JSON
 import com.android.volley.Request
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.macyang.net.JDResult
 import com.ohmerhe.kolley.request.Http
 
 /**
@@ -15,7 +19,7 @@ object HttpUtils {
      * @param listener 请求结果回调
      * @param what 用于区分哪次请求
      */
-    inline fun <reified T> getRequest(requestUrl: String, map: Map<String, String>, listener: RequestListener<T>,
+     inline fun <reified T> getRequest(requestUrl: String, map: Map<String, String>, listener: RequestListener<T>,
         what: Int): Request<ByteArray> {
         return Http.get {
             url = requestUrl
@@ -37,8 +41,7 @@ object HttpUtils {
             }
 
             onSuccess { bytes ->
-                val bean = JSON.parseObject(String(bytes), T::class.java)
-                listener.success(what, bean)
+                listener.success(what, String(bytes))
             }
 
             onFail { error ->
@@ -46,6 +49,7 @@ object HttpUtils {
             }
 
             onFinish {
+                Log.e("TAG","WANC")
                 listener.onFinish()
             }
         }
