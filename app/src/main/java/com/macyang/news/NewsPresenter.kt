@@ -1,7 +1,9 @@
 package com.macyang.news
 
+import android.util.Log
+import com.alibaba.fastjson.TypeReference
+import com.google.gson.reflect.TypeToken
 import com.macyang.base.BasePresenter
-import com.macyang.base.BaseView
 import com.macyang.bean.NewsBean
 import com.macyang.net.InterfaceManager
 import com.macyang.net.JDResult
@@ -13,7 +15,6 @@ import com.macyang.utils.RequestListener
 class NewsPresenter:BasePresenter<NewsView>() {
 
     fun getNewsData(listener: RequestListener<NewsBean>) {
-        getView()?.showLoadDialog()
         val newsInfo = InterfaceManager.getNewsInfo("头条", 0, listener)
         requestList.add(newsInfo)
     }

@@ -10,7 +10,7 @@ import com.macyang.utils.RequestListener
  * 有网络请求的activity基类
  * Created by tengfei.lv on 2017/8/28.
  */
-abstract class BaseNetActivity<V:BaseView,P : BasePresenter<V>, in T> : AppCompatActivity(), RequestListener<T>, BaseView {
+abstract class BaseNetActivity<V:BaseView,P : BasePresenter<V>,in T> : AppCompatActivity(), RequestListener<T>, BaseView {
     var presenter: P? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -9,12 +9,11 @@ import com.android.volley.VolleyError
 import com.macyang.R
 import com.macyang.base.BaseNetFragment
 import com.macyang.bean.NewsBean
-import com.macyang.net.JDResult
 
 /**
  * Created by tengfei.lv on 2017/8/29.
  */
-class NewsFragment:BaseNetFragment<NewsView,NewsPresenter, NewsBean>(),NewsView {
+class NewsFragment:BaseNetFragment<NewsView,NewsPresenter,NewsBean>(),NewsView {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
@@ -26,13 +25,13 @@ class NewsFragment:BaseNetFragment<NewsView,NewsPresenter, NewsBean>(),NewsView 
         super.onViewCreated(view, savedInstanceState)
         requestData()
     }
-
     override fun success(tag: Int, t: NewsBean) {
-        Log.e("TAG","$t")
+
+        Log.e("TAG","bean = $t")
     }
 
     override fun failed(tag: Int, error: VolleyError) {
-        Log.e("TAG","${error.message}")
+        Log.e("TAG","e = ${error.message}")
     }
 
     override fun createPresenter(): NewsPresenter {

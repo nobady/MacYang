@@ -1,7 +1,9 @@
 package com.macyang.base
 
+import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,12 +37,13 @@ import com.macyang.utils.RequestListener
         hideLoadDialog()
     }
 
+
     override fun showLoadDialog() {
         StyledDialog.buildMdLoading("玩命加载中...").show()
     }
 
     override fun hideLoadDialog() {
-        StyledDialog.dismiss(StyledDialog.getLoadingDialog())
+        StyledDialog.dismissLoading()
     }
 
     override fun showErrorDialog(msg: String) {
