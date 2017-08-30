@@ -1,12 +1,9 @@
 package com.macyang.news
 
-import android.util.Log
 import com.alibaba.fastjson.TypeReference
-import com.google.gson.reflect.TypeToken
 import com.macyang.base.BasePresenter
 import com.macyang.bean.NewsBean
 import com.macyang.net.InterfaceManager
-import com.macyang.net.JDResult
 import com.macyang.utils.RequestListener
 
 /**
