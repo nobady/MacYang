@@ -15,8 +15,8 @@ object InterfaceManager {
      * T = $NewsBean
      */
     inline fun <reified T> getNewsInfo(channel: String, startIndex: Int,
-        listener: RequestListener<T>
-        ): Request<ByteArray> {
+                                       listener: RequestListener<T>
+    ): Request<ByteArray> {
         val map = HashMap<String, String>()
         map.put("channel", channel)
         map.put("start", startIndex.toString())
@@ -29,7 +29,7 @@ object InterfaceManager {
      * 获取天气信息
      * T = WeatherInfoBean
      */
-     inline fun <reified T> getWeatherInfo(cityId:String,listener: RequestListener<T>): Request<ByteArray> {
+    inline fun <reified T> getWeatherInfo(cityId: String, listener: RequestListener<T>): Request<ByteArray> {
         val map = HashMap<String, String>()
         map.put("cityId", cityId)
         map.put("appkey", Constants.APP_KEY)
@@ -40,7 +40,7 @@ object InterfaceManager {
      * 获取城市信息
      * T = WeatherCityBean
      */
-     inline fun <reified T> getWeatherCity(listener: RequestListener<T>): Request<ByteArray> {
+    inline fun <reified T> getWeatherCity(listener: RequestListener<T>): Request<ByteArray> {
         val map = HashMap<String, String>()
         map.put("appkey", Constants.APP_KEY)
         return HttpUtils.getRequest(Constants.WEATHER_CITY_URL, map, listener, 2)
@@ -60,7 +60,7 @@ object InterfaceManager {
      * 根据菜谱分类搜索
      * T = SearchRecipeByTypeBean
      */
-    inline fun <reified T> searchRecipeByClass(classId:String,start:Int,listener: RequestListener<T>): Request<ByteArray> {
+    inline fun <reified T> searchRecipeByClass(classId: String, start: Int, listener: RequestListener<T>): Request<ByteArray> {
         val map = HashMap<String, String>()
         map.put("appkey", Constants.APP_KEY)
         map.put("start", start.toString())
@@ -73,10 +73,23 @@ object InterfaceManager {
      * 根据菜谱id获取菜谱详情
      * T = RecipeDetailBean
      */
-    inline fun <reified T> getRecipeDetail(id:String,listener: RequestListener<T>): Request<ByteArray> {
+    inline fun <reified T> getRecipeDetail(id: String, listener: RequestListener<T>): Request<ByteArray> {
         val map = HashMap<String, String>()
         map.put("appkey", Constants.APP_KEY)
         map.put("id", id)
         return HttpUtils.getRequest(Constants.RECIPE_DETAIL_BYID, map, listener, 5)
+    }
+
+    /**
+     * 发送聊天信息
+     * T = ChatBean
+     */
+    inline fun <reified T> sendChatMsg(info: String, listener: RequestListener<T>): Request<ByteArray> {
+        val map = HashMap<String, String>()
+        map.put("info", info)
+        map.put("loc", "深圳市宝安区宝源路000号")
+        map.put("userid", "001")
+        map.put("appkey", Constants.APP_KEY)
+        return HttpUtils.getRequest(Constants.CHAT_ROBOT_URL, map, listener, 6)
     }
 }
