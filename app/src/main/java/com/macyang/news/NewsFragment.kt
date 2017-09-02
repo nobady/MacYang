@@ -14,6 +14,7 @@ import com.macyang.bean.NewsBean
  * Created by tengfei.lv on 2017/8/29.
  */
 class NewsFragment:BaseNetFragment<NewsView,NewsPresenter,NewsBean>(),NewsView {
+
     override fun getLayout(): Int {
         return R.layout.fragment_news
     }
