@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/frag_chat_recycle"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/frag_chat_edit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:background="@drawable/chat_edittext_bg" />
+
+        <TextView
+            android:id="@+id/frag_chat_send"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/chat_send_bg"
+            android:gravity="center"
+            android:text="@string/send"
+            android:textColor="@color/wheat"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>

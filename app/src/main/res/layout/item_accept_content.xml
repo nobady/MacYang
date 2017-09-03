@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="left">
+
+    <ImageView
+        android:id="@+id/accept_icon_img"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/accept_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/chat_send_content_bg"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="你也好，腰好肾好耐力好。😂" />
+</LinearLayout>
