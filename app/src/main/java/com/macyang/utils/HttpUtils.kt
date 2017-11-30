@@ -1,7 +1,6 @@
 package com.macyang.utils
 
 import android.util.Log
-import com.alibaba.fastjson.JSON
 import com.android.volley.Request
 import com.google.gson.Gson
 import com.ohmerhe.kolley.request.Http

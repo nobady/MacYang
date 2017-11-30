@@ -48,8 +48,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:2.2.2'
     /*网络请求框架*/
     compile 'com.ohmerhe.kolley:kolley:0.3.0'
-    /*统一度对话框*/
-    compile 'com.github.hss01248:DialogUtil:1.1.6'
+//    /*统一度对话框*/
+//    compile 'com.github.hss01248:DialogUtil:1.1.6'
     /*logger*/
     compile 'io.github.microutils:kotlin-logging:1.4.6'
 

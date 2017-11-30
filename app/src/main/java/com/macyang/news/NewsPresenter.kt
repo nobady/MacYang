@@ -1,6 +1,5 @@
 package com.macyang.news
 
-import com.alibaba.fastjson.TypeReference
 import com.macyang.base.BasePresenter
 import com.macyang.bean.NewsBean
 import com.macyang.net.InterfaceManager
